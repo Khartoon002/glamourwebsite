@@ -114,11 +114,12 @@
       --gold3:#E8C84A;
       --text:#FDF6E3;
       --muted: rgba(253,246,227,.72);
-      --radius: 26px;
+      --radius: 22px;
       --shadow: 0 30px 90px rgba(0,0,0,.65);
     }
 
     *{ box-sizing:border-box; }
+    *::selection{ background: rgba(201,162,39,.28); color: #fff7dc; }
     html,body{ height:100%; }
     body{
       margin:0;
@@ -148,7 +149,7 @@
     .navbar-toggler{ border:none; color:var(--text); padding:0; font-size:1.85rem; }
     .navbar-toggler:focus{ box-shadow:none; }
 
-    .btn-custom{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 34px; border-radius:999px; font-weight:800; letter-spacing:.2px; transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; white-space:nowrap; user-select:none; -webkit-tap-highlight-color:transparent; }
+    .btn-custom{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:13px 28px; border-radius:16px; font-weight:800; letter-spacing:.2px; transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; white-space:nowrap; user-select:none; -webkit-tap-highlight-color:transparent; }
     .btn-solid{ background:linear-gradient(135deg, var(--gold3), var(--gold)); color:#0D0A04; border:none; box-shadow:0 18px 45px rgba(201,162,39,.22); }
     .btn-solid:hover{ transform:translateY(-2px); box-shadow:0 22px 55px rgba(201,162,39,.30); }
     .btn-glass{ background:rgba(255,255,255,.07); border:1px solid rgba(201,162,39,.28); color:var(--text); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 16px 35px rgba(0,0,0,.20); }
@@ -180,7 +181,7 @@
     @media (max-width:991px){ .mini-stats{ grid-template-columns:1fr; } .preview-img{ max-height:min(320px, 42svh); } }
     @media (max-width:575px){ .hero-kicker{ width:100%; justify-content:center; text-align:center; } .hero-title,.hero-desc,.seo-kicker{ text-align:center; } .hero-wrap .hero-actions{ justify-content:center; } .btn-custom{ width:100%; } .preview-img{ aspect-ratio:1/1; max-height:min(290px, 40svh); } }
 
-    .step-card{ height:100%; padding:22px 20px; border-radius:22px; background:rgba(201,162,39,.055); border:1px solid rgba(201,162,39,.18); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease; position:relative; overflow:hidden; }
+    .step-card{ height:100%; padding:22px 20px; border-radius:18px; background:rgba(201,162,39,.055); border:1px solid rgba(201,162,39,.18); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease; position:relative; overflow:hidden; }
     .step-card::before{ content:""; position:absolute; inset:-2px; background:radial-gradient(340px 220px at 20% 10%, rgba(201,162,39,.14), transparent 60%); opacity:0; transition:opacity .25s ease; pointer-events:none; }
     .step-card:hover{ transform:translateY(-8px); border-color:rgba(201,162,39,.45); background:rgba(201,162,39,.08); box-shadow:0 20px 55px rgba(0,0,0,.35), 0 0 40px rgba(201,162,39,.07); }
     .step-card:hover::before{ opacity:1; }
@@ -188,7 +189,7 @@
     .step-card h4{ font-weight:900; margin:6px 0 8px; }
     .step-card p{ color:rgba(253,246,227,.72); line-height:1.65; margin:0; }
 
-    .price-card{ height:100%; border-radius:26px; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); border:1px solid rgba(201,162,39,.18); overflow:hidden; position:relative; box-shadow:0 26px 85px rgba(0,0,0,.55); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .price-card{ height:100%; border-radius:22px; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); border:1px solid rgba(201,162,39,.18); overflow:hidden; position:relative; box-shadow:0 26px 85px rgba(0,0,0,.55); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
     .price-card:hover{ transform:translateY(-8px); border-color:rgba(201,162,39,.45); box-shadow:0 30px 95px rgba(0,0,0,.60), 0 0 60px rgba(201,162,39,.07); }
     .price-card.reco::before{ content:""; position:absolute; inset:-2px; background:conic-gradient(from 180deg, rgba(201,162,39,.26), transparent 25%, rgba(168,132,26,.18), transparent 55%, rgba(201,162,39,.22)); filter:blur(16px); opacity:.55; animation:spin 10s linear infinite; pointer-events:none; }
     @keyframes spin{ 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }

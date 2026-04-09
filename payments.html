@@ -2,202 +2,793 @@
 <html lang="en">
 <head>
   <style>body{transition:opacity ease-in 0.2s}body[unresolved]{opacity:0;display:block;overflow:hidden;position:relative}</style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <link rel="canonical" href="https://glamourwebsite.com.ng/payments.html" />
-  <base target="_top" />
-  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+  <link rel="canonical" href="https://glamourwebsite.com.ng/payments.html"/>
+  <base target="_top"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
   <title>Glamour Payment — Register &amp; Earn in Euros and Pounds</title>
-  <meta name="description" content="Glamour payment page. Choose your country and see the correct registration fee and payment flow. After payment, submit your proof to get activated on Glamour." />
-  <meta name="keywords" content="glamour payment, glamour registration fee, glamour signup fee, GlamLifeSoftLife, pay for glamour, glamour Nigeria payment, glamourwebsite.com.ng" />
-  <meta name="theme-color" content="#0D0A04" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="description" content="Glamour payment page. Choose your country and see the correct registration fee and payment flow. After payment, submit your proof to get activated on Glamour."/>
+  <meta name="keywords" content="glamour payment, glamour registration fee, glamour signup fee, GlamLifeSoftLife, pay for glamour, glamour Nigeria payment, glamourwebsite.com.ng"/>
+  <meta name="theme-color" content="#0A0804"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     :root{
-      --bg:#0D0A04;
-      --panel:rgba(201,162,39,.06);
-      --panel2:rgba(201,162,39,.03);
-      --stroke:rgba(201,162,39,.20);
-      --stroke2:rgba(201,162,39,.32);
-      --text:#FDF6E3;
-      --muted:rgba(253,246,227,.74);
-      --muted2:rgba(253,246,227,.55);
+      --bg:#0A0804;
+      --surface:rgba(201,162,39,.055);
+      --surface2:rgba(201,162,39,.03);
+      --stroke:rgba(201,162,39,.16);
+      --stroke2:rgba(201,162,39,.28);
+      --text:#F5EDD6;
+      --muted:rgba(245,237,214,.65);
+      --muted2:rgba(245,237,214,.42);
       --gold:#C9A227;
-      --gold3:#E8C84A;
-      --radius:26px;
-      --shadow:0 30px 90px rgba(0,0,0,.75);
-      --shadow2:0 18px 60px rgba(0,0,0,.6);
+      --gold2:#DDB84A;
+      --gold3:#EDD06E;
+      --red:rgba(210,55,55,.92);
+      --green:#27996B;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{box-sizing:border-box;margin:0;padding:0}
+    *::selection{ background: rgba(201,162,39,.28); color: #fff7dc; }
+    html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background:radial-gradient(1200px 700px at 20% 10%, rgba(201,162,39,.12), transparent 60%),radial-gradient(900px 600px at 80% 20%, rgba(168,132,26,.10), transparent 60%),linear-gradient(180deg,#050401,var(--bg));
+      font-family:'Poppins',system-ui,sans-serif;
+      background:var(--bg);
       color:var(--text);
+      min-height:100%;
       overflow-x:hidden;
       -webkit-tap-highlight-color:transparent;
+      background-image:
+        radial-gradient(ellipse 900px 600px at 15% 0%, rgba(201,162,39,.10) 0%, transparent 65%),
+        radial-gradient(ellipse 600px 500px at 85% 10%, rgba(180,140,20,.07) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     }
-    .glow{position:fixed;width:520px;height:520px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle,rgba(201,162,39,.25),rgba(168,132,26,.12),transparent 65%);filter:blur(18px);mix-blend-mode:screen;opacity:0;transition:opacity .25s ease;z-index:0;}
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,28px);position:relative;z-index:1;}
-    .card{width:min(720px,100%);text-align:center;padding:clamp(14px,3.5vw,22px);border-radius:clamp(18px,4.4vw,var(--radius));background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--stroke);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--shadow);position:relative;overflow:hidden;}
-    .brand-name{font-size:2rem;font-weight:900;color:var(--gold3);text-shadow:0 0 20px rgba(201,162,39,.35);display:block;margin-bottom:.5rem;}
-    h1{font-size:clamp(18px,4.6vw,22px);font-weight:900;margin:clamp(6px,2vw,10px) 0 6px;letter-spacing:.1px;line-height:1.15;}
-    .subtitle{font-size:clamp(12px,3.2vw,13px);color:var(--muted);max-width:66ch;margin:0 auto;line-height:1.55;}
-    .links{margin-top:clamp(14px,3vw,18px);display:flex;flex-direction:column;gap:clamp(10px,2.6vw,14px);text-align:left;}
-    .btn{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:clamp(12px,3.2vw,16px);border-radius:clamp(16px,4vw,20px);text-decoration:none;color:var(--text);background:rgba(0,0,0,.38);border:1px solid rgba(201,162,39,.18);position:relative;overflow:hidden;will-change:transform,box-shadow,background;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),border-color 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s cubic-bezier(0.16,1,0.3,1),background 0.35s cubic-bezier(0.16,1,0.3,1);cursor:pointer;user-select:none;touch-action:manipulation;}
-    .btn::after{content:"";position:absolute;inset:0;background:radial-gradient(240px 240px at var(--mx,50%) var(--my,50%),rgba(201,162,39,.42),transparent 60%);opacity:0;will-change:opacity;transition:opacity 0.35s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}
-    .btn:hover{transform:translateY(-1px);border-color:rgba(201,162,39,.55);box-shadow:0 14px 40px rgba(201,162,39,.12);background:rgba(0,0,0,.42);}
-    .btn:hover::after{opacity:1}
-    .left{display:flex;gap:12px;align-items:center;min-width:0}
-    .ico{width:clamp(42px,11vw,46px);height:clamp(42px,11vw,46px);border-radius:clamp(14px,4vw,16px);display:grid;place-items:center;font-size:clamp(18px,4.8vw,20px);background:linear-gradient(135deg,rgba(201,162,39,.18),rgba(168,132,26,.10));border:1px solid rgba(201,162,39,.20);flex:0 0 auto;}
-    .labelwrap{min-width:0}
-    .label{font-weight:900;font-size:clamp(13px,3.6vw,14px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .note{font-size:clamp(11.5px,3.1vw,12px);color:var(--muted2);margin-top:2px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-    .arrow{opacity:.9;flex:0 0 auto;font-size:16px;}
-    /* Modal */
-    .modal{position:fixed;inset:0;display:none;align-items:flex-end;justify-content:center;padding:clamp(10px,3vw,18px);background:rgba(0,0,0,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:9999;}
-    .modal.show{display:flex;}
-    .modalCard{width:min(760px,100%);border-radius:clamp(18px,4.4vw,22px);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.05));border:1px solid rgba(201,162,39,.18);box-shadow:0 30px 90px rgba(0,0,0,.72);overflow:hidden;position:relative;max-height:calc(100svh - 24px);display:flex;flex-direction:column;}
-    .modalHead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:clamp(12px,3vw,14px) clamp(12px,3.2vw,16px);border-bottom:1px solid rgba(201,162,39,.12);flex:0 0 auto;}
-    .modalTitle{font-weight:900;letter-spacing:.2px;font-size:clamp(13.5px,3.7vw,15px);}
-    .xbtn{border:none;background:rgba(255,255,255,.08);border:1px solid rgba(201,162,39,.18);color:var(--text);border-radius:12px;padding:10px 12px;cursor:pointer;font-family:inherit;font-size:12px;touch-action:manipulation;}
-    .modalBody{padding:clamp(12px,3.2vw,16px);overflow:auto;-webkit-overflow-scrolling:touch;}
-    .grid2{display:grid;grid-template-columns:1fr;gap:clamp(10px,2.8vw,12px)}
-    @media(min-width:820px){.modal{align-items:center;}.grid2{grid-template-columns:1fr 1fr;}}
-    .pickCard{border-radius:clamp(16px,4vw,18px);border:1px solid rgba(201,162,39,.18);background:rgba(0,0,0,.32);padding:clamp(12px,3.2vw,14px);cursor:pointer;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;position:relative;overflow:hidden;touch-action:manipulation;}
-    .pickCard:hover{transform:translateY(-1px);border-color:rgba(201,162,39,.55);box-shadow:0 12px 40px rgba(201,162,39,.12);}
-    .tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-weight:900;font-size:11px;border:1px solid rgba(201,162,39,.20);background:rgba(201,162,39,.10);white-space:nowrap;}
-    .price{margin-top:10px;font-weight:900;font-size:clamp(18px,4.8vw,20px);letter-spacing:-.2px;line-height:1.15;}
-    .small{margin-top:6px;color:var(--muted2);font-size:clamp(11.5px,3.1vw,12px);line-height:1.45;}
-    .row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:clamp(11px,3.2vw,12px);border-radius:clamp(14px,3.8vw,16px);border:1px solid rgba(201,162,39,.16);background:rgba(0,0,0,.26);flex-wrap:wrap;}
-    .row .k{color:rgba(253,246,227,.70);font-size:clamp(11px,3vw,12px)}
-    .row .v{font-weight:900;font-size:clamp(12.5px,3.6vw,14px);word-break:break-word;overflow-wrap:anywhere;max-width:100%;}
-    .copyBtn{border:none;background:rgba(255,255,255,.10);border:1px solid rgba(201,162,39,.18);color:var(--text);border-radius:12px;padding:10px 12px;cursor:pointer;font-family:inherit;font-size:12px;flex:0 0 auto;touch-action:manipulation;}
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(12px,3vw,14px);}
-    .cta{flex:1 1 220px;border:none;border-radius:clamp(16px,4vw,18px);padding:14px;font-weight:900;font-size:clamp(13px,3.6vw,14px);cursor:pointer;color:#0D0A04;background:linear-gradient(135deg,rgba(232,200,74,.95),rgba(201,162,39,.80));box-shadow:0 18px 50px rgba(201,162,39,.22);font-family:inherit;text-align:center;touch-action:manipulation;}
-    .ghost{flex:1 1 220px;border-radius:clamp(16px,4vw,18px);border:1px solid rgba(201,162,39,.18);background:rgba(0,0,0,.28);color:var(--text);padding:14px;font-weight:900;font-size:clamp(13px,3.6vw,14px);cursor:pointer;font-family:inherit;text-align:center;touch-action:manipulation;}
-    .count{font-weight:900;color:rgba(232,200,74,.95);font-size:12px;margin-top:6px;}
-    .toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(14px);opacity:0;pointer-events:none;padding:10px 12px;border-radius:14px;background:rgba(0,0,0,.62);border:1px solid rgba(201,162,39,.20);color:var(--text);font-size:12px;backdrop-filter:blur(12px);will-change:opacity,transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity 0.35s cubic-bezier(0.16,1,0.3,1),transform 0.35s cubic-bezier(0.16,1,0.3,1);z-index:10010;max-width:calc(100vw - 24px);text-align:center;}
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0px)}
+
+    .page{
+      max-width:680px;
+      margin:0 auto;
+      padding:clamp(20px,5vw,48px) clamp(16px,4vw,32px) 48px;
+      display:flex;
+      flex-direction:column;
+      gap:0;
+    }
+
+    .urgency-strip{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-bottom:20px;
+    }
+    .u-bar{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:8px;
+      font-size:12px;
+      font-weight:500;
+      color:var(--muted);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.022);
+      letter-spacing:0;
+    }
+    .u-bar.full{grid-column:1/-1}
+    .u-dot{
+      width:6px;height:6px;border-radius:50%;
+      flex-shrink:0;
+    }
+    .u-dot.red{background:var(--red)}
+    .u-dot.green{background:var(--green);animation:dotpulse 2.2s ease-in-out infinite alternate}
+    @keyframes dotpulse{from{width:6px}to{width:7.5px}}
+    .u-timer{
+      font-family:'Poppins',sans-serif;
+      font-size:13px;
+      font-weight:500;
+      color:var(--gold2);
+      font-variant-numeric:tabular-nums;
+      margin-left:auto;
+      letter-spacing:.5px;
+    }
+    .u-slot-wrap{display:flex;align-items:center;gap:8px;width:100%}
+    .u-track{
+      width:80px;height:3px;
+      background:rgba(255,255,255,.08);
+      border-radius:99px;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+    .u-fill{
+      display:block;height:100%;width:73%;
+      background:linear-gradient(90deg,var(--gold),var(--gold3));
+      border-radius:99px;
+    }
+    #activityText{
+      transition:opacity .55s ease;
+      color:rgba(80,195,130,.85);
+    }
+    #activityText.fading{opacity:0}
+
+    .hdr{
+      text-align:center;
+      padding:clamp(32px,7vw,56px) 0 clamp(28px,5vw,44px);
+      position:relative;
+    }
+    .hdr-eyebrow{
+      display:inline-block;
+      font-size:11px;
+      font-weight:500;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      color:var(--gold2);
+      margin-bottom:16px;
+      opacity:.8;
+    }
+    .hdr-brand{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(3.8rem,16vw,7rem);
+      font-weight:700;
+      line-height:.9;
+      color:var(--gold3);
+      display:block;
+      letter-spacing:-.02em;
+      text-shadow:0 2px 40px rgba(201,162,39,.18);
+    }
+    .hdr-rule{
+      width:40px;height:1px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      margin:20px auto;
+    }
+    .hdr-sub{
+      font-size:clamp(14px,3.5vw,15px);
+      color:var(--muted);
+      max-width:38ch;
+      margin:0 auto;
+      line-height:1.65;
+    }
+    .hdr-sub b{color:var(--text);font-weight:500}
+
+    .scarcity-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      margin-top:20px;
+      padding:8px 14px;
+      border-radius:6px;
+      border:1px solid rgba(210,55,55,.28);
+      background:rgba(210,55,55,.07);
+      font-size:12px;
+      font-weight:500;
+      color:rgba(230,100,100,.9);
+      letter-spacing:.1px;
+    }
+    .scarcity-pill span.dot{
+      width:5px;height:5px;border-radius:50%;
+      background:rgba(210,55,55,.9);
+      flex-shrink:0;
+    }
+
+    .cta-wrap{margin-top:clamp(24px,5vw,36px)}
+    .main-btn{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      width:100%;
+      padding:clamp(16px,4vw,22px) clamp(18px,4vw,24px);
+      border-radius:12px;
+      border:1px solid var(--stroke2);
+      background:linear-gradient(135deg,rgba(201,162,39,.10),rgba(201,162,39,.05));
+      color:var(--text);
+      cursor:pointer;
+      text-align:left;
+      position:relative;
+      overflow:hidden;
+      transition:border-color .25s ease, transform .25s ease;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    }
+    .main-btn::before{
+      content:'';
+      position:absolute;inset:0;
+      background:radial-gradient(300px 200px at var(--mx,50%) var(--my,50%), rgba(201,162,39,.14), transparent 65%);
+      opacity:0;
+      transition:opacity .3s ease;
+      pointer-events:none;
+    }
+    .main-btn:hover{border-color:rgba(201,162,39,.42);transform:translateY(-1px)}
+    .main-btn:hover::before{opacity:1}
+    .main-btn:active{transform:translateY(0)}
+    .btn-icon{
+      width:clamp(44px,11vw,52px);
+      height:clamp(44px,11vw,52px);
+      border-radius:8px;
+      background:rgba(201,162,39,.1);
+      border:1px solid rgba(201,162,39,.18);
+      display:grid;place-items:center;
+      flex-shrink:0;
+      font-size:clamp(18px,4.5vw,22px);
+    }
+    .btn-copy{flex:1;min-width:0}
+    .btn-label{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.25rem,5vw,1.6rem);
+      font-weight:600;
+      line-height:1.1;
+      color:var(--text);
+      letter-spacing:-.01em;
+    }
+    .btn-note{
+      font-size:clamp(12px,3vw,13px);
+      color:var(--muted2);
+      margin-top:4px;
+      line-height:1.5;
+    }
+    .btn-arrow{
+      font-size:clamp(20px,5vw,24px);
+      color:var(--gold2);
+      opacity:.7;
+      flex-shrink:0;
+      transition:transform .25s ease, opacity .25s ease;
+    }
+    .main-btn:hover .btn-arrow{transform:translate(2px,-2px);opacity:1}
+
+    .trust-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:clamp(14px,4vw,24px);
+      margin-top:clamp(20px,4vw,28px);
+      flex-wrap:wrap;
+    }
+    .trust-item{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:11.5px;
+      color:var(--muted2);
+      letter-spacing:.1px;
+    }
+    .trust-item svg{opacity:.5;flex-shrink:0}
+    .trust-sep{width:1px;height:12px;background:var(--stroke);flex-shrink:0}
+
+    .modal{
+      position:fixed;inset:0;
+      display:none;
+      align-items:flex-end;
+      justify-content:center;
+      padding:clamp(8px,2vw,16px);
+      background:rgba(0,0,0,.75);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      z-index:9999;
+    }
+    .modal.show{display:flex}
+    @media(min-width:720px){.modal{align-items:center}}
+    .modal-card{
+      width:min(720px,100%);
+      max-height:calc(100svh - 24px);
+      display:flex;
+      flex-direction:column;
+      border-radius:20px;
+      background:rgba(14,10,4,.97);
+      border:1px solid var(--stroke);
+      overflow:hidden;
+    }
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 18px;
+      border-bottom:1px solid var(--stroke);
+      flex-shrink:0;
+    }
+    .modal-title{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.1rem,4.5vw,1.35rem);
+      font-weight:600;
+      color:var(--text);
+      letter-spacing:-.01em;
+    }
+    .x-btn{
+      border:1px solid var(--stroke);
+      background:transparent;
+      color:var(--muted2);
+      border-radius:8px;
+      padding:8px 12px;
+      cursor:pointer;
+      font-family:'Poppins',sans-serif;
+      font-size:12px;
+      touch-action:manipulation;
+      transition:color .2s,border-color .2s;
+    }
+    .x-btn:hover{color:var(--text);border-color:var(--stroke2)}
+    .modal-body{
+      padding:clamp(14px,3vw,20px);
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      flex:1;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    @media(min-width:540px){.grid2{grid-template-columns:1fr 1fr}}
+
+    .pick-card{
+      border-radius:10px;
+      border:1px solid var(--stroke);
+      background:rgba(201,162,39,.03);
+      padding:clamp(14px,3.5vw,18px);
+      cursor:pointer;
+      transition:border-color .18s ease, transform .18s ease;
+      touch-action:manipulation;
+    }
+    .pick-card:hover{border-color:var(--stroke2);transform:translateY(-1px)}
+    .pick-card:active{transform:translateY(0)}
+    .pick-tag{
+      display:inline-block;
+      padding:4px 10px;
+      border-radius:4px;
+      font-size:11px;
+      font-weight:500;
+      letter-spacing:.3px;
+      border:1px solid rgba(201,162,39,.18);
+      background:rgba(201,162,39,.07);
+      color:var(--gold2);
+      margin-bottom:10px;
+    }
+    .pick-price{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.4rem,5vw,1.65rem);
+      font-weight:600;
+      color:var(--text);
+      line-height:1;
+      margin-bottom:6px;
+      letter-spacing:-.01em;
+    }
+    .pick-note{font-size:12px;color:var(--muted2);line-height:1.5}
+
+    .pay-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:8px;
+      border:1px solid var(--stroke);
+      background:rgba(0,0,0,.22);
+      margin-bottom:8px;
+      flex-wrap:wrap;
+    }
+    .pay-k{font-size:11px;color:var(--muted2);margin-bottom:3px;letter-spacing:.2px}
+    .pay-v{font-size:14px;font-weight:500;color:var(--text);word-break:break-all}
+    .copy-btn{
+      border:1px solid var(--stroke);
+      background:transparent;
+      color:var(--muted);
+      border-radius:8px;
+      padding:8px 12px;
+      cursor:pointer;
+      font-family:'Poppins',sans-serif;
+      font-size:11px;
+      flex-shrink:0;
+      touch-action:manipulation;
+      transition:color .2s,border-color .2s;
+    }
+    .copy-btn:hover{color:var(--text);border-color:var(--stroke2)}
+
+    .note-box{
+      padding:12px 14px;
+      border-radius:8px;
+      border:1px solid rgba(201,162,39,.14);
+      background:rgba(201,162,39,.04);
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+      margin-bottom:8px;
+    }
+    .note-box .timer{
+      font-family:'Poppins',sans-serif;
+      font-variant-numeric:tabular-nums;
+      font-size:13px;
+      font-weight:500;
+      color:var(--gold2);
+      margin-top:6px;
+    }
+
+    .act-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .act-primary{
+      flex:1 1 200px;
+      border:none;
+      border-radius:8px;
+      padding:14px 18px;
+      font-family:'Poppins',sans-serif;
+      font-size:14px;
+      font-weight:500;
+      cursor:pointer;
+      color:#0A0804;
+      background:linear-gradient(135deg,var(--gold3),var(--gold));
+      touch-action:manipulation;
+      transition:opacity .2s,transform .2s;
+    }
+    .act-primary:hover{opacity:.92;transform:translateY(-1px)}
+    .act-primary:active{transform:translateY(0)}
+    .act-ghost{
+      flex:1 1 160px;
+      border:1px solid var(--stroke);
+      border-radius:10px;
+      padding:14px 18px;
+      font-family:'Poppins',sans-serif;
+      font-size:13px;
+      font-weight:500;
+      cursor:pointer;
+      color:var(--muted);
+      background:transparent;
+      touch-action:manipulation;
+      transition:color .2s,border-color .2s;
+    }
+    .act-ghost:hover{color:var(--text);border-color:var(--stroke2)}
+    .footer-note{
+      font-size:11.5px;
+      color:var(--muted2);
+      text-align:center;
+      margin-top:12px;
+      line-height:1.55;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;bottom:calc(20px + env(safe-area-inset-bottom));
+      transform:translateX(-50%) translateY(12px);
+      opacity:0;pointer-events:none;
+      padding:10px 16px;
+      border-radius:8px;
+      background:rgba(10,8,4,.88);
+      border:1px solid var(--stroke2);
+      color:var(--text);
+      font-size:12px;
+      backdrop-filter:blur(12px);
+      transition:opacity .28s ease,transform .28s ease;
+      z-index:10010;
+      max-width:calc(100vw - 32px);
+      text-align:center;
+      white-space:nowrap;
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    .page-footer{
+      margin-top:clamp(32px,6vw,48px);
+      padding-top:20px;
+      border-top:1px solid var(--stroke);
+      text-align:center;
+      font-size:11.5px;
+      color:var(--muted2);
+      line-height:1.7;
+    }
+    .page-footer strong{color:var(--muted);font-weight:500}
   </style>
 </head>
 <body>
-  <div class="glow" id="glow"></div>
-  <main class="wrap">
-    <section class="card">
-      <span class="brand-name">Glamour</span>
-      <h1>Glamour Payment (Nigeria &amp; Other Countries)</h1>
-      <p class="subtitle">Click below to choose your <b>country</b> and see the correct <b>registration fee</b> and <b>payment flow</b>. After payment, click <b>Submit Payment Proof</b> to send your proof on Telegram.</p>
-      <div class="links">
-        <div class="btn" id="startBtn" role="button" tabindex="0" aria-label="Start payment">
-          <div class="left">
-            <div class="ico">💳</div>
-            <div class="labelwrap">
-              <div class="label">Start Payment</div>
-              <div class="note">Country → Registration → Payment → Submit proof (Telegram).</div>
-            </div>
-          </div>
-          <div class="arrow">↗</div>
+
+<div class="page">
+
+  <div class="urgency-strip" aria-label="Registration status">
+
+    <div class="u-bar">
+      <span class="u-dot red" aria-hidden="true"></span>
+      <span style="font-size:12px">Closes at midnight</span>
+      <span class="u-timer" id="deadlineTimer" aria-live="polite">00:00:00</span>
+    </div>
+
+    <div class="u-bar">
+      <div class="u-slot-wrap">
+        <span class="u-track" aria-hidden="true"><span class="u-fill"></span></span>
+        <span style="font-size:12px;color:var(--muted)">6 spots left</span>
+        <span style="font-size:11px;color:var(--muted2);margin-left:auto">16&thinsp;/&thinsp;22 taken</span>
+      </div>
+    </div>
+
+    <div class="u-bar full">
+      <span class="u-dot green" aria-hidden="true"></span>
+      <span id="activityText" style="font-size:12px;color:rgba(80,195,130,.85)">Temi from Lagos registered 4 minutes ago</span>
+    </div>
+
+  </div>
+
+  <header class="hdr">
+    <span class="hdr-eyebrow">Digital Earning Platform</span>
+    <span class="hdr-brand">Glamour</span>
+    <div class="hdr-rule" aria-hidden="true"></div>
+    <p class="hdr-sub">Choose your <b>country</b>, pay your one-time fee, and submit proof on Telegram to get <b>activated today</b>.</p>
+    <div class="scarcity-pill">
+      <span class="dot" aria-hidden="true"></span>
+      Slots filling fast — don't lose your spot
+    </div>
+  </header>
+
+  <div class="cta-wrap">
+    <button class="main-btn" id="startBtn" aria-label="Start registration payment">
+      <div class="btn-icon" aria-hidden="true">💳</div>
+      <div class="btn-copy">
+        <div class="btn-label">Register Now — Limited Slots</div>
+        <div class="btn-note">Pick your country · Pay once · Get activated within the hour</div>
+      </div>
+      <div class="btn-arrow" aria-hidden="true">↗</div>
+    </button>
+  </div>
+
+  <div class="trust-row" aria-label="Trust indicators">
+    <div class="trust-item">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8L9 4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Activated within 1 hour
+    </div>
+    <div class="trust-sep" aria-hidden="true"></div>
+    <div class="trust-item">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4.5" width="9" height="7" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 4.5V3.5a2 2 0 014 0v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Secure Paystack checkout
+    </div>
+    <div class="trust-sep" aria-hidden="true"></div>
+    <div class="trust-item">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 1.5l1.3 2.6 2.9.4-2.1 2 .5 2.9L6.5 8l-2.6 1.4.5-2.9-2.1-2 2.9-.4z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+      €12/hour earning potential
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <strong>glamourwebsite.com.ng</strong><br>
+    After payment, send your proof to <strong>@glamourvendor</strong> on Telegram
+  </footer>
+
+</div>
+
+<div class="modal" id="countryModal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div class="modal-title">Select Your Country</div>
+      <button class="x-btn" id="closeCountry">Close</button>
+    </div>
+    <div class="modal-body">
+      <div class="grid2" id="countryGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="packageModal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div class="modal-title">Select Package</div>
+      <button class="x-btn" id="closePackage">Close</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--muted2);margin-bottom:12px">Country: <strong id="selCountryLabel" style="color:var(--text);font-weight:500">—</strong></p>
+      <div class="grid2" id="packageGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="payModal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div class="modal-title" id="payModalTitle">Payment Details</div>
+      <button class="x-btn" id="closePay">Close</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--muted2);margin-bottom:14px">
+        <span id="pfCountry">—</span> &middot; <span id="pfPackage">—</span> &middot;
+        <strong id="pfAmount" style="color:var(--gold2);font-weight:500">—</strong>
+      </p>
+
+      <div id="detailsRows">
+        <div class="pay-row">
+          <div><div class="pay-k">Payment channel</div><div class="pay-v" id="pfChannel">—</div></div>
+          <button class="copy-btn" data-copy="#pfChannel">Copy</button>
+        </div>
+        <div class="pay-row">
+          <div><div class="pay-k">Account / Wallet number</div><div class="pay-v" id="pfAcctNo">—</div></div>
+          <button class="copy-btn" data-copy="#pfAcctNo">Copy</button>
+        </div>
+        <div class="pay-row">
+          <div><div class="pay-k">Account / Wallet name</div><div class="pay-v" id="pfAcctName">—</div></div>
+          <button class="copy-btn" data-copy="#pfAcctName">Copy</button>
         </div>
       </div>
-    </section>
-  </main>
 
-  <div class="modal" id="countryModal" aria-hidden="true">
-    <div class="modalCard">
-      <div class="modalHead"><div class="modalTitle">Select Your Country</div><button class="xbtn" id="closeCountry">Close</button></div>
-      <div class="modalBody"><div class="grid2" id="countryGrid"></div></div>
-    </div>
-  </div>
-
-  <div class="modal" id="packageModal" aria-hidden="true">
-    <div class="modalCard">
-      <div class="modalHead"><div class="modalTitle">Select Package</div><button class="xbtn" id="closePackage">Close</button></div>
-      <div class="modalBody">
-        <div class="small" style="margin-bottom:10px;">Country: <b id="selCountryLabel">—</b></div>
-        <div class="grid2" id="packageGrid"></div>
+      <div class="note-box">
+        <div id="pfNote">—</div>
+        <div class="timer" id="countdownTimer">01:00:00</div>
       </div>
-    </div>
-  </div>
 
-  <div class="modal" id="payModal" aria-hidden="true">
-    <div class="modalCard">
-      <div class="modalHead"><div class="modalTitle" id="payModalTitle">Payment Details</div><button class="xbtn" id="closePay">Close</button></div>
-      <div class="modalBody">
-        <div class="small" style="margin-bottom:10px;">Country: <b id="pfCountry">—</b> • Package: <b id="pfPackage">—</b> • Amount: <b id="pfAmount">—</b></div>
-        <div id="detailsRows">
-          <div class="row"><div><div class="k">Payment channel</div><div class="v" id="pfChannel">—</div></div><button class="copyBtn" data-copy="#pfChannel">Copy</button></div>
-          <div style="height:10px"></div>
-          <div class="row"><div><div class="k">Account / Wallet number</div><div class="v" id="pfAcctNo">—</div></div><button class="copyBtn" data-copy="#pfAcctNo">Copy</button></div>
-          <div style="height:10px"></div>
-          <div class="row"><div><div class="k">Account / Wallet name</div><div class="v" id="pfAcctName">—</div></div><button class="copyBtn" data-copy="#pfAcctName">Copy</button></div>
-          <div style="height:10px"></div>
-        </div>
-        <div class="row"><div style="min-width:240px;flex:1 1 240px;"><div class="k">Important note</div><div class="v" id="pfNote" style="font-weight:700;">—</div><div class="count" id="countdownTimer">01:00:00</div></div></div>
-        <div class="ctaRow"><button class="cta" id="primaryPayBtn">Pay Now</button><button class="ghost" id="secondaryBtn">Copy All Details</button></div>
-        <div class="small" id="footerNote" style="margin-top:10px;text-align:center;">—</div>
+      <div class="act-row">
+        <button class="act-primary" id="primaryPayBtn">Pay Now</button>
+        <button class="act-ghost" id="secondaryBtn">Copy Details</button>
       </div>
+      <div class="footer-note" id="footerNote">—</div>
     </div>
   </div>
+</div>
 
-  <div class="toast" id="toast">Copied ✅</div>
+<div class="toast" id="toast">Copied</div>
 
-  <script>
-    const DATA = {
-      proofPhone:"",
-      brand:"Glamour",
-      countries:[
-        {key:"NG",label:"🇳🇬 Nigeria",packages:{Registration:{amountText:"₦14,050"}},payment:{mode:"paystack",paystackUrl:"https://paystack.shop/pay/6wabet3r-m",note:"Click \"Pay Now\" to complete your payment on Paystack. After payment, click \"Submit Payment Proof\" to send your screenshot for confirmation on Telegram.",footer:"After payment, send a screenshot of your payment slip and your sender name to @glamourvendor on Telegram for confirmation.",pending:false}},
-        {key:"GH",label:"🇬🇭 Ghana",packages:{Registration:{amountText:"200 GHS"}},payment:{channel:"MTN",acctNo:"0550827063",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to speak with @glamourvendor and complete your foreign payment.",footer:"All foreign payments are processed via @glamourvendor on Telegram.",pending:false}},
-        {key:"CM",label:"🇨🇲 Cameroon",packages:{Registration:{amountText:"12,000 XAF"}},payment:{channel:"MTN",acctNo:"652856398",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to speak with @glamourvendor and complete your foreign payment.",footer:"All foreign payments are processed via @glamourvendor on Telegram.",pending:false}},
-        {key:"KE",label:"🇰🇪 Kenya",packages:{Registration:{amountText:"2,500 KES"}},payment:{channel:"AIRTEL MONEY",acctNo:"0107494918",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to speak with @glamourvendor and complete your foreign payment.",footer:"All foreign payments are processed via @glamourvendor on Telegram.",pending:false}},
-        {key:"ZA",label:"🇿🇦 South Africa",packages:{Registration:{amountText:"350 ZAR"}},payment:{channel:"FNB",acctNo:"63096232756",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to speak with @glamourvendor and complete your foreign payment.",footer:"All foreign payments are processed via @glamourvendor on Telegram.",pending:false}},
-        {key:"UG",label:"🇺🇬 Uganda",packages:{Registration:{amountText:"65,000 UGX"}},payment:{channel:"AIRTEL UGANDA",acctNo:"+256753668856",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to speak with @glamourvendor and complete your foreign payment.",footer:"All foreign payments are processed via @glamourvendor on Telegram.",pending:false}},
-        {key:"SL",label:"🇸🇱 Sierra Leone",packages:{Registration:{amountText:"350 SLE"}},payment:{channel:"ORANGE MONEY",acctNo:"073190703",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to speak with @glamourvendor and complete your foreign payment.",footer:"All foreign payments are processed via @glamourvendor on Telegram.",pending:false}}
-      ]
+<script>
+const DATA={
+  brand:"Glamour",
+  countries:[
+    {key:"NG",label:"🇳🇬 Nigeria",packages:{Registration:{amountText:"₦14,050"}},payment:{mode:"paystack",paystackUrl:"https://paystack.shop/pay/6wabet3r-m",note:"Tap \"Pay Now\" to complete payment on Paystack. Then tap \"Submit Proof\" to send your screenshot to @glamourvendor on Telegram.",footer:"Send payment screenshot + sender name to @glamourvendor on Telegram.",pending:false}},
+    {key:"GH",label:"🇬🇭 Ghana",packages:{Registration:{amountText:"200 GHS"}},payment:{channel:"MTN",acctNo:"0550827063",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to reach @glamourvendor and complete your payment.",footer:"All foreign payments are handled via @glamourvendor on Telegram.",pending:false}},
+    {key:"CM",label:"🇨🇲 Cameroon",packages:{Registration:{amountText:"12,000 XAF"}},payment:{channel:"MTN",acctNo:"652856398",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to reach @glamourvendor and complete your payment.",footer:"All foreign payments are handled via @glamourvendor on Telegram.",pending:false}},
+    {key:"KE",label:"🇰🇪 Kenya",packages:{Registration:{amountText:"2,500 KES"}},payment:{channel:"AIRTEL MONEY",acctNo:"0107494918",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to reach @glamourvendor and complete your payment.",footer:"All foreign payments are handled via @glamourvendor on Telegram.",pending:false}},
+    {key:"ZA",label:"🇿🇦 South Africa",packages:{Registration:{amountText:"350 ZAR"}},payment:{channel:"FNB",acctNo:"63096232756",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to reach @glamourvendor and complete your payment.",footer:"All foreign payments are handled via @glamourvendor on Telegram.",pending:false}},
+    {key:"UG",label:"🇺🇬 Uganda",packages:{Registration:{amountText:"65,000 UGX"}},payment:{channel:"AIRTEL UGANDA",acctNo:"+256753668856",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to reach @glamourvendor and complete your payment.",footer:"All foreign payments are handled via @glamourvendor on Telegram.",pending:false}},
+    {key:"SL",label:"🇸🇱 Sierra Leone",packages:{Registration:{amountText:"350 SLE"}},payment:{channel:"ORANGE MONEY",acctNo:"073190703",acctName:"GLAMOUR AGENT",note:"Use the Telegram button below to reach @glamourvendor and complete your payment.",footer:"All foreign payments are handled via @glamourvendor on Telegram.",pending:false}}
+  ]
+};
+
+const TELE_PROOF="https://t.me/glamourvendor?text=I%20have%20made%20payments%20for%20Glamour.%20How%20do%20I%20get%20started%3F";
+const PROOFS=[
+  "Temi from Lagos registered 4 minutes ago",
+  "Someone from Accra just joined",
+  "New member activated in Abuja — 9 mins ago",
+  "Registration just completed from Port Harcourt",
+  "Favour from Warri joined 18 minutes ago",
+  "A new member just activated from Nairobi"
+];
+
+const $=s=>document.querySelector(s);
+const toast=$("#toast");
+let cdTimer=null;
+
+function showToast(msg){toast.textContent=msg;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1400);}
+async function copyText(t){try{await navigator.clipboard.writeText(t);}catch{const el=document.createElement("textarea");el.value=t;document.body.appendChild(el);el.select();document.execCommand("copy");el.remove();}showToast("Copied");}
+
+function openModal(id){const m=$(id);m.classList.add("show");m.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
+function closeModal(id){const m=$(id);m.classList.remove("show");m.setAttribute("aria-hidden","true");document.body.style.overflow="";}
+
+function attachGlow(el){
+  el.addEventListener("mousemove",e=>{
+    const r=el.getBoundingClientRect();
+    el.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");
+    el.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%");
+  });
+}
+
+function tickDeadline(){
+  const el=$("#deadlineTimer");if(!el)return;
+  const now=new Date();
+  const midnight=new Date(now);midnight.setHours(24,0,0,0);
+  const diff=Math.max(0,midnight-now);
+  const h=String(Math.floor(diff/3600000)).padStart(2,"0");
+  const m=String(Math.floor(diff%3600000/60000)).padStart(2,"0");
+  const s=String(Math.floor(diff%60000/1000)).padStart(2,"0");
+  el.textContent=`${h}:${m}:${s}`;
+}
+tickDeadline();setInterval(tickDeadline,1000);
+
+(function(){
+  const el=$("#activityText");if(!el)return;
+  let i=0;
+  setInterval(()=>{
+    el.classList.add("fading");
+    setTimeout(()=>{i=(i+1)%PROOFS.length;el.textContent=PROOFS[i];el.classList.remove("fading");},550);
+  },5000);
+})();
+
+function startCountdown(secs){
+  const el=$("#countdownTimer");if(!el)return;
+  if(cdTimer)clearInterval(cdTimer);
+  let rem=secs;
+  function tick(){
+    const h=String(Math.floor(rem/3600)).padStart(2,"0");
+    const m=String(Math.floor(rem%3600/60)).padStart(2,"0");
+    const s=String(Math.floor(rem%60)).padStart(2,"0");
+    el.textContent=`${h}:${m}:${s}`;
+    if(rem<=0){clearInterval(cdTimer);el.textContent="Expired";el.style.color="var(--red)";return;}
+    rem--;
+  }
+  tick();cdTimer=setInterval(tick,1000);
+}
+
+const cg=$("#countryGrid");
+DATA.countries.forEach(c=>{
+  const d=document.createElement("div");
+  d.className="pick-card";
+  d.innerHTML=`<div class="pick-tag">${c.label}</div><div class="pick-price">${c.label.split(" ").slice(1).join(" ")}</div><div class="pick-note">Tap to select your package →</div>`;
+  d.addEventListener("click",()=>{
+    $("#selCountryLabel").textContent=c.label;
+    closeModal("#countryModal");
+    renderPackages(c);
+    openModal("#packageModal");
+  });
+  cg.appendChild(d);
+});
+
+function renderPackages(country){
+  const pg=$("#packageGrid");pg.innerHTML="";
+  Object.keys(country.packages).forEach(plan=>{
+    const p=country.packages[plan];
+    const d=document.createElement("div");
+    d.className="pick-card";
+    d.innerHTML=`<div class="pick-tag">Glamour ${plan}</div><div class="pick-price">${p.amountText}</div><div class="pick-note" style="color:rgba(210,80,80,.8);font-size:11.5px">6 spots left this week</div>`;
+    d.addEventListener("click",()=>{
+      closeModal("#packageModal");
+      fillPayModal(country,plan);
+      openModal("#payModal");
+      if(!country.payment?.pending)startCountdown(3600);
+    });
+    pg.appendChild(d);
+  });
+}
+
+function fillPayModal(country,plan){
+  const pay=country.payment||{};
+  const amt=country.packages[plan]?.amountText||"—";
+  $("#pfCountry").textContent=country.label;
+  $("#pfPackage").textContent="Glamour "+plan;
+  $("#pfAmount").textContent=amt;
+  const isPS=pay.mode==="paystack"&&pay.paystackUrl;
+  const isForeign=country.key!=="NG";
+  $("#payModalTitle").textContent=isPS?"Pay via Paystack":"Payment Details";
+  $("#detailsRows").style.display=(!isPS&&!isForeign)?"block":"none";
+  if(!isPS&&!isForeign){
+    $("#pfChannel").textContent=pay.channel||"—";
+    $("#pfAcctNo").textContent=pay.acctNo||"—";
+    $("#pfAcctName").textContent=pay.acctName||"—";
+  }
+  const noteText=pay.pending
+    ?(pay.note||"Payment not yet available for this country.")
+    :isForeign
+    ?`Tap the button below to reach @glamourvendor on Telegram and complete your ${country.label} registration.`
+    :(pay.note||"Complete payment and submit proof on Telegram.");
+  $("#pfNote").textContent=noteText;
+  $("#footerNote").textContent=pay.footer||"";
+  const pb=$("#primaryPayBtn"),sb=$("#secondaryBtn");
+  if(pay.pending){
+    pb.disabled=true;pb.textContent="Not Available Yet";pb.style.opacity=".5";pb.onclick=null;
+    sb.textContent="Copy Info";sb.onclick=()=>showToast("Not available");
+  } else if(isPS){
+    pb.disabled=false;pb.style.opacity="1";pb.textContent="Pay Now — Paystack";
+    pb.onclick=()=>{window.location.href=pay.paystackUrl;};
+    sb.textContent="Submit Proof on Telegram";
+    sb.onclick=()=>{window.location.href=TELE_PROOF;};
+  } else if(isForeign){
+    const msg=`I am from ${country.label} and I want to register for Glamour.`;
+    pb.disabled=false;pb.style.opacity="1";pb.textContent="Message @glamourvendor";
+    pb.onclick=()=>{window.location.href="https://t.me/glamourvendor?text="+encodeURIComponent(msg);};
+    sb.textContent="Copy Message";sb.onclick=()=>copyText(msg);
+  } else {
+    pb.disabled=false;pb.style.opacity="1";pb.textContent="Submit Proof on Telegram";
+    pb.onclick=()=>{window.location.href=TELE_PROOF;};
+    sb.textContent="Copy All Details";
+    sb.onclick=()=>{
+      const lines=[
+        `${country.label} GLAMOUR REGISTRATION`,"",
+        `FEE: ${amt}`,"","PAYMENT DETAILS",
+        pay.channel||"—",pay.acctNo||"—",pay.acctName||"—",
+        "",pay.note||"",pay.footer||""
+      ];
+      copyText(lines.join("\n"));
     };
+  }
+}
 
-    const TELEGRAM_PROOF_URL="https://t.me/glamourvendor?text=I%20have%20made%20payments%20for%20Glamour.%20How%20do%20I%20get%20started%3F";
-    let selectedCountry=null,selectedPackage=null;
-    const $q=(q)=>document.querySelector(q);
-    const toast=$q("#toast");
-
-    function showToast(msg){toast.textContent=msg;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1300);}
-    async function copyText(text){try{await navigator.clipboard.writeText(text);showToast("Copied ✅");}catch{const t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();showToast("Copied ✅");}}
-
-    function openModal(id){const el=$q(id);el.classList.add("show");el.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
-    function closeModal(id){const el=$q(id);el.classList.remove("show");el.setAttribute("aria-hidden","true");document.body.style.overflow="";}
-    function attachButtonGlow(el){el.addEventListener("mousemove",(e)=>{const r=el.getBoundingClientRect();el.style.setProperty("--mx",((e.clientX-r.left)/r.width)*100+"%");el.style.setProperty("--my",((e.clientY-r.top)/r.height)*100+"%");});}
-
-    const glow=$q("#glow");
-    const isTouch=matchMedia("(hover: none)").matches||"ontouchstart" in window;
-    if(!isTouch){let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;addEventListener("mousemove",(e)=>{tx=e.clientX;ty=e.clientY;glow.style.opacity=1;});addEventListener("mouseleave",()=>glow.style.opacity=0);(function loop(){x+=(tx-x)*.12;y+=(ty-y)*.12;glow.style.left=x+"px";glow.style.top=y+"px";requestAnimationFrame(loop);})();}else{glow.style.display="none";}
-
-    const countryGrid=$q("#countryGrid"),packageGrid=$q("#packageGrid");
-
-    function renderCountries(){countryGrid.innerHTML="";DATA.countries.forEach(c=>{const div=document.createElement("div");div.className="pickCard";div.innerHTML=`<span class="tag">${c.label} GLAMOUR</span><div class="price">${c.label}</div><div class="small">Tap to choose your registration package.</div>`;attachButtonGlow(div);div.addEventListener("click",()=>{selectedCountry=c;selectedPackage=null;$q("#selCountryLabel").textContent=c.label;closeModal("#countryModal");renderPackagesForCountry(c);openModal("#packageModal");});countryGrid.appendChild(div);});}
-
-    function renderPackagesForCountry(country){packageGrid.innerHTML="";const pk=country.packages||{};Object.keys(pk).forEach(planName=>{const plan=pk[planName];const div=document.createElement("div");div.className="pickCard";div.innerHTML=`<span class="tag">✨ ${DATA.brand} ${planName}</span><div class="price">${plan.amountText}</div><div class="small">Tap to continue.</div>`;attachButtonGlow(div);div.addEventListener("click",()=>{selectedPackage=planName;closeModal("#packageModal");fillPaymentModal(country,planName);openModal("#payModal");if(!country.payment?.pending)startCountdown(3600);});packageGrid.appendChild(div);});}
-
-    function fillPaymentModal(country,planName){const pay=country.payment||{};const amountText=country.packages[planName]?.amountText||"—";$q("#pfCountry").textContent=country.label;$q("#pfPackage").textContent=DATA.brand+" "+planName;$q("#pfAmount").textContent=amountText;const isPaystack=(pay.mode==="paystack"&&pay.paystackUrl);const isForeign=country.key!=="NG";const shouldShowDetailsRows=!isPaystack&&!isForeign;$q("#payModalTitle").textContent=isPaystack?"Pay Now (Paystack)":"Payment Details";$q("#detailsRows").style.display=shouldShowDetailsRows?"block":"none";if(shouldShowDetailsRows){$q("#pfChannel").textContent=pay.channel||"—";$q("#pfAcctNo").textContent=pay.acctNo||"—";$q("#pfAcctName").textContent=pay.acctName||"—";}else{$q("#pfChannel").textContent="—";$q("#pfAcctNo").textContent="—";$q("#pfAcctName").textContent="—";}let noteText;if(pay.pending){noteText=pay.note||"Payment is not yet available for this country.";}else if(isForeign){noteText=`To complete your ${DATA.brand} registration from ${country.label}, tap "Message @glamourvendor on Telegram" below.`;}else{noteText=pay.note||`After payment, click "Submit Payment Proof" to message @glamourvendor on Telegram.`;}$q("#pfNote").textContent=noteText;$q("#footerNote").textContent=pay.footer||(isForeign?"Tap the button above to message @glamourvendor on Telegram.":"After payment, send your proof for confirmation via Telegram.");const primaryBtn=$q("#primaryPayBtn"),secondaryBtn=$q("#secondaryBtn");if(pay.pending){primaryBtn.disabled=true;primaryBtn.textContent="Payment Not Available Yet";primaryBtn.style.opacity="0.6";primaryBtn.onclick=null;secondaryBtn.textContent="Copy Info";secondaryBtn.onclick=()=>showToast("Not available");}else if(isPaystack){primaryBtn.disabled=false;primaryBtn.style.opacity="1";primaryBtn.textContent="Pay Now (Paystack)";primaryBtn.onclick=()=>{window.location.href=pay.paystackUrl;};secondaryBtn.textContent="Submit Payment Proof (Telegram)";secondaryBtn.onclick=()=>{window.location.href=TELEGRAM_PROOF_URL;};}else{if(isForeign){const foreignMsg=`I am from ${country.label} and I want to register for Glamour.`;primaryBtn.disabled=false;primaryBtn.style.opacity="1";primaryBtn.textContent="Message @glamourvendor on Telegram";primaryBtn.onclick=()=>{const url="https://t.me/glamourvendor?text="+encodeURIComponent(foreignMsg);window.location.href=url;};secondaryBtn.textContent="Copy Telegram Message";secondaryBtn.onclick=()=>{copyText(foreignMsg);};}else{primaryBtn.disabled=false;primaryBtn.style.opacity="1";primaryBtn.textContent="Submit Payment Proof (Telegram)";primaryBtn.onclick=()=>{window.location.href=TELEGRAM_PROOF_URL;};secondaryBtn.textContent="Copy All Details";secondaryBtn.onclick=()=>{const lines=[];lines.push(`${country.label} ${DATA.brand.toUpperCase()} REG INFO`);lines.push("");Object.keys(country.packages).forEach(k=>{lines.push(`💛 SIGNUP FEE = ${country.packages[k]?.amountText||"—"}`);});lines.push("");lines.push("🏆 PAYMENT DETAILS");lines.push(`${(pay.channel||"—")}`);lines.push(`${(pay.acctNo||"—")}`);lines.push(`${(pay.acctName||"—")}`);if(pay.note)lines.push(`\nℹ️ ${pay.note}`);if(pay.footer)lines.push(`\n${pay.footer}`);copyText(lines.join("\n"));};}}}
-
-    $q("#startBtn").addEventListener("click",()=>openModal("#countryModal"));
-    $q("#startBtn").addEventListener("keydown",(e)=>{if(e.key==="Enter"||e.key===" ")openModal("#countryModal");});
-    $q("#closeCountry").addEventListener("click",()=>closeModal("#countryModal"));
-    $q("#closePackage").addEventListener("click",()=>closeModal("#packageModal"));
-    $q("#closePay").addEventListener("click",()=>closeModal("#payModal"));
-    ["#countryModal","#packageModal","#payModal"].forEach(id=>{const m=$q(id);m.addEventListener("click",(e)=>{if(e.target===m)closeModal(id);});});
-    document.addEventListener("click",(e)=>{const b=e.target.closest(".copyBtn");if(!b)return;const sel=b.getAttribute("data-copy");const target=document.querySelector(sel);if(!target)return;copyText((target.textContent||"").trim());});
-    document.querySelectorAll(".btn").forEach(attachButtonGlow);
-
-    let countdownTimer=null;
-    function startCountdown(seconds){const el=$q("#countdownTimer");if(!el)return;let remaining=seconds;if(countdownTimer)clearInterval(countdownTimer);el.style.color="";function tick(){const h=String(Math.floor(remaining/3600)).padStart(2,'0');const m=String(Math.floor((remaining%3600)/60)).padStart(2,'0');const s=String(Math.floor(remaining%60)).padStart(2,'0');el.textContent=`${h}:${m}:${s}`;if(remaining<=0){clearInterval(countdownTimer);el.textContent="Expired";el.style.color="rgba(255,77,109,.95)";return;}remaining--;}tick();countdownTimer=setInterval(tick,1000);}
-
-    renderCountries();
-  </script>
+$("#startBtn").addEventListener("click",()=>openModal("#countryModal"));
+$("#startBtn").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" ")openModal("#countryModal");});
+attachGlow($("#startBtn"));
+$("#closeCountry").addEventListener("click",()=>closeModal("#countryModal"));
+$("#closePackage").addEventListener("click",()=>closeModal("#packageModal"));
+$("#closePay").addEventListener("click",()=>closeModal("#payModal"));
+["#countryModal","#packageModal","#payModal"].forEach(id=>{
+  $(id).addEventListener("click",e=>{if(e.target.id===id.slice(1))closeModal(id);});
+});
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".copy-btn");if(!b)return;
+  const t=document.querySelector(b.getAttribute("data-copy"));
+  if(t)copyText(t.textContent.trim());
+});
+</script>
 </body>
 </html>
